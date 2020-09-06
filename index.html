@@ -12,15 +12,41 @@
 <body>
     <div id="mydiv"></div>
     <div id="like_button_container"></div>
+    <div id="numviews"></div>
+
+
     <script type="text/babel">
         class Hello extends React.Component{
             render(){
                 return <h1>Hello React World!</h1>
             }
         }
-
         ReactDOM.render(<Hello />,document.getElementById('mydiv'))
     </script>
+    <script type="text/babel">
+        class NumberOfViews extends React.Component {
+            constructor(props){
+                super(props);
+                var timesViewed = 0;
+                if(localStorage.timesViewed){
+                    timesViewed = localStorage.timesViewed;
+                }
+                timesViewed++;
+                this.state = {numViews: timesViewed};
+                localStorage.timesViewed = timesViewed;
+            }
+            
+            render() {
+                return <h6>{"Total Number of Visits: "+ this.state.numViews}</h6>
+            }
+        }
+
+        ReactDOM.render( 
+            <NumberOfViews />,
+            document.getElementById('numviews')
+        );
+    </script>
     <script src="like_button.js"></script>
+    <script src="number_views.js"></script>
 </body>
 </html>
