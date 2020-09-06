@@ -11,7 +11,7 @@ class NumberOfViews extends React.Component {
     }
     
     render() {
-        return <h1>Hello React World!</h1>
+        return <h6>{"Total Number of Visits: "+ this.state.numViews}</h6>
     }
 }
 
@@ -19,3 +19,5 @@ ReactDOM.render(
     <NumberOfViews />,
     document.getElementById('numviews')
 );
+
+
